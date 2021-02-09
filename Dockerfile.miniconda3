@@ -1,0 +1,20 @@
+FROM conda/miniconda3
+MAINTAINER Russel Torres (russtorres@gmail.com)
+
+RUN apt-get update -y \
+    && apt-get install -y gcc \
+    && apt-get install -y g++ \
+    && apt-get install -y gfortran \
+    && apt-get install -y cmake \
+    && apt-get install -y git
+
+
+# install flatbuffers
+RUN /bin/bash -c "git clone https://github.com/google/flatbuffers.git flatbuffers"
+WORKDIR flatbuffers
+RUN /bin/bash -c 'cmake -G "Unix Makefiles" && make && ./flattests'
+
+WORKDIR python
+RUN python setup.py install
+
+WORKDIR ../../
