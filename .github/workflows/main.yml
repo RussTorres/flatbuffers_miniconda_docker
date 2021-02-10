@@ -18,8 +18,8 @@ jobs:
         with:
           context: .
           file: ./Dockerfile.miniconda3
-          # repository: russtorres/flatbuffers_miniconda_docker
+          repository: russtorres/flatbuffers_miniconda
           tags: |
-            russtorres/flatbuffers_miniconda_docker:latest
-            russtorres/flatbuffers_miniconda_docker:miniconda3
+            russtorres/flatbuffers_miniconda:latest
+            russtorres/flatbuffers_miniconda:miniconda3
           # tag_with_ref: true
