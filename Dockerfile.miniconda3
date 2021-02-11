@@ -8,6 +8,8 @@ RUN apt-get update -y \
     && apt-get install -y cmake \
     && apt-get install -y git
 
+RUN conda update conda
+RUN conda install python=${PYTHON_VERSION:-3.7}
 
 # install flatbuffers
 RUN /bin/bash -c "git clone https://github.com/google/flatbuffers.git flatbuffers"
